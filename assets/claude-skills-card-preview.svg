@@ -1,0 +1,89 @@
+<svg width="1200" height="840" viewBox="0 0 1200 840" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#030303"/>
+      <stop offset="55%" stop-color="#030303"/>
+      <stop offset="78%" stop-color="#130A06"/>
+      <stop offset="100%" stop-color="#050403"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(330 640) rotate(-12) scale(360 150)">
+      <stop offset="0%" stop-color="#FAA694" stop-opacity="0.98"/>
+      <stop offset="25%" stop-color="#EA8364" stop-opacity="0.82"/>
+      <stop offset="50%" stop-color="#7F3927" stop-opacity="0.42"/>
+      <stop offset="73%" stop-color="#7F3927" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(690 560) rotate(-8) scale(290 120)">
+      <stop offset="0%" stop-color="#C85A34" stop-opacity="0.58"/>
+      <stop offset="44%" stop-color="#692D1B" stop-opacity="0.34"/>
+      <stop offset="76%" stop-color="#692D1B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(510 605) rotate(-4) scale(220 90)">
+      <stop offset="0%" stop-color="#F8966F" stop-opacity="0.54"/>
+      <stop offset="52%" stop-color="#622B1D" stop-opacity="0.24"/>
+      <stop offset="82%" stop-color="#622B1D" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 420) scale(600 420)">
+      <stop offset="28%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="65%" stop-color="#000000" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.82"/>
+    </radialGradient>
+    <filter id="softBlur" x="90" y="40" width="1020" height="760" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <filter id="shadow" x="155" y="50" width="890" height="780" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="28" stdDeviation="35" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <clipPath id="cardClip">
+      <rect x="210" y="70" width="780" height="700" rx="36"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="840" fill="#FFFFFF"/>
+
+  <g filter="url(#shadow)">
+    <rect x="210" y="70" width="780" height="700" rx="36" fill="url(#bg)"/>
+  </g>
+
+  <g clip-path="url(#cardClip)">
+    <g filter="url(#softBlur)">
+      <ellipse cx="330" cy="640" rx="360" ry="150" fill="url(#glow1)"/>
+      <ellipse cx="690" cy="560" rx="290" ry="120" fill="url(#glow2)"/>
+      <ellipse cx="510" cy="605" rx="220" ry="90" fill="url(#glow3)"/>
+    </g>
+    <rect x="210" y="70" width="780" height="700" fill="url(#vignette)"/>
+
+    <g opacity="0.12">
+      <circle cx="310" cy="180" r="1.3" fill="white"/>
+      <circle cx="365" cy="260" r="1.1" fill="white"/>
+      <circle cx="420" cy="135" r="1.0" fill="white"/>
+      <circle cx="520" cy="240" r="1.5" fill="white"/>
+      <circle cx="620" cy="180" r="1.2" fill="white"/>
+      <circle cx="730" cy="130" r="1.0" fill="white"/>
+      <circle cx="860" cy="220" r="1.2" fill="white"/>
+      <circle cx="920" cy="170" r="1.1" fill="white"/>
+      <circle cx="290" cy="390" r="1.1" fill="white"/>
+      <circle cx="390" cy="450" r="1.3" fill="white"/>
+      <circle cx="540" cy="510" r="1.2" fill="white"/>
+      <circle cx="760" cy="500" r="1.1" fill="white"/>
+      <circle cx="900" cy="430" r="1.0" fill="white"/>
+      <circle cx="820" cy="610" r="1.2" fill="white"/>
+      <circle cx="680" cy="670" r="1.4" fill="white"/>
+      <circle cx="430" cy="705" r="1.1" fill="white"/>
+    </g>
+  </g>
+
+  <g transform="translate(260 140)">
+    <g transform="translate(0 0)">
+      <rect x="34" y="0" width="6" height="36" rx="999" fill="white" transform="rotate(0 34 0)"/>
+      <rect x="34" y="0" width="6" height="36" rx="999" fill="white" transform="rotate(45 34 0)"/>
+      <rect x="34" y="0" width="6" height="36" rx="999" fill="white" transform="rotate(90 34 0)"/>
+      <rect x="34" y="0" width="6" height="36" rx="999" fill="white" transform="rotate(135 34 0)"/>
+    </g>
+    <text x="56" y="24" fill="white" fill-opacity="0.94" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="400" letter-spacing="-0.04em">suraj.dsgn</text>
+  </g>
+
+  <g text-anchor="middle">
+    <text x="600" y="395" fill="white" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="78" font-weight="500" letter-spacing="-0.075em">New Claude Skills</text>
+    <text x="600" y="445" fill="white" fill-opacity="0.64" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="34" font-weight="400" letter-spacing="-0.055em">for UI/UX Engineers</text>
+  </g>
+</svg>
