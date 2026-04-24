@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Claude Skills Card</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --rx: 0deg;
+      --ry: 0deg;
+      --mx: 50%;
+      --my: 50%;
+    }
+
+    body {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      background: #ffffff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      perspective: 1200px;
+    }
+
+    .card {
+      position: relative;
+      width: min(92vw, 560px);
+      aspect-ratio: 5 / 7;
+      overflow: hidden;
+      border-radius: 26px;
+      background: #030303;
+      color: white;
+      isolation: isolate;
+      transform-style: preserve-3d;
+      transform: rotateX(var(--rx)) rotateY(var(--ry));
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.025) inset;
+      will-change: transform;
+    }
+
+    .card:hover {
+      transition: transform 70ms linear, box-shadow 160ms ease;
+      box-shadow:
+        0 38px 100px rgba(0, 0, 0, 0.48),
+        0 0 0 1px rgba(255, 255, 255, 0.045) inset;
+    }
+
+    .shader {
+      position: absolute;
+      inset: 0;
+      z-index: -4;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          ellipse 86% 36% at 16% 92%,
+          rgba(250, 166, 148, 0.98) 0%,
+          rgba(234, 131, 100, 0.82) 24%,
+          rgba(127, 57, 39, 0.42) 48%,
+          transparent 73%
+        ),
+        radial-gradient(
+          ellipse 68% 31% at 62% 72%,
+          rgba(200, 90, 52, 0.58) 0%,
+          rgba(105, 45, 27, 0.34) 44%,
+          transparent 76%
+        ),
+        radial-gradient(
+          ellipse 52% 24% at 35% 76%,
+          rgba(248, 150, 111, 0.54) 0%,
+          rgba(98, 43, 29, 0.24) 52%,
+          transparent 82%
+        ),
+        linear-gradient(
+          180deg,
+          #030303 0%,
+          #030303 51%,
+          #130a06 74%,
+          #050403 100%
+        );
+      filter: blur(16px);
+      transform: translateZ(-40px) scale(1.045);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          360px circle at var(--mx) var(--my),
+          rgba(255, 255, 255, 0.075),
+          transparent 42%
+        );
+      opacity: 0;
+      transition: opacity 180ms ease;
+      mix-blend-mode: screen;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.7'/%3E%3C/svg%3E");
+      opacity: 0.18;
+      mix-blend-mode: screen;
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(
+          ellipse at center,
+          transparent 25%,
+          rgba(0, 0, 0, 0.20) 60%,
+          rgba(0, 0, 0, 0.78) 100%
+        );
+    }
+
+    .brand {
+      position: absolute;
+      top: 34px;
+      left: 38px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      color: rgba(255, 255, 255, 0.94);
+      transform: translateZ(34px);
+    }
+
+    .mark {
+      width: 22px;
+      height: 22px;
+      position: relative;
+      display: block;
+    }
+
+    .mark span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 4px;
+      height: 22px;
+      border-radius: 999px;
+      background: white;
+      transform-origin: center;
+    }
+
+    .mark span:nth-child(1) {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    .mark span:nth-child(2) {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .mark span:nth-child(3) {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .mark span:nth-child(4) {
+      transform: translate(-50%, -50%) rotate(135deg);
+    }
+
+    .content {
+      position: absolute;
+      left: 50%;
+      top: 50.5%;
+      width: 100%;
+      transform: translate3d(-50%, -50%, 46px);
+      text-align: center;
+      padding-inline: 28px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7.4vw, 58px);
+      line-height: 0.95;
+      font-weight: 500;
+      letter-spacing: -0.075em;
+      color: #fff;
+    }
+
+    p {
+      margin-top: 13px;
+      font-size: clamp(18px, 3.4vw, 27px);
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.055em;
+      color: rgba(255, 255, 255, 0.64);
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        width: 94vw;
+        border-radius: 22px;
+      }
+
+      .brand {
+        top: 28px;
+        left: 30px;
+        font-size: 15px;
+      }
+
+      .mark {
+        width: 19px;
+        height: 19px;
+      }
+
+      .mark span {
+        height: 19px;
+        width: 3.5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card" id="card">
+    <div class="shader"></div>
+    <div class="vignette"></div>
+
+    <div class="brand">
+      <span class="mark" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span>suraj.dsgn</span>
+    </div>
+
+    <section class="content">
+      <h1>New Claude Skills</h1>
+      <p>for UI/UX Engineers</p>
+    </section>
+  </main>
+
+  <script>
+    const card = document.querySelector("#card");
+
+    const maxTilt = 10;
+
+    card.addEventListener("mousemove", (event) => {
+      const rect = card.getBoundingClientRect();
+
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      const percentX = x / rect.width;
+      const percentY = y / rect.height;
+
+      const rotateY = (percentX - 0.5) * maxTilt * 2;
+      const rotateX = (0.5 - percentY) * maxTilt * 2;
+
+      card.style.setProperty("--rx", `${rotateX.toFixed(2)}deg`);
+      card.style.setProperty("--ry", `${rotateY.toFixed(2)}deg`);
+      card.style.setProperty("--mx", `${(percentX * 100).toFixed(2)}%`);
+      card.style.setProperty("--my", `${(percentY * 100).toFixed(2)}%`);
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
+      card.style.setProperty("--mx", "50%");
+      card.style.setProperty("--my", "50%");
+    });
+  </script>
+</body>
+</html>
