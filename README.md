@@ -1,38 +1,28 @@
 # Claude Skills Card UI
 
-A clean, modern **Claude Skills card UI concept** for presenting AI skills, capabilities, and feature highlights in a polished card-based layout.
+A sleek **single-file HTML/CSS/JavaScript card UI** inspired by Claude Skills.
 
-This repository is intended for building a reusable card component that can showcase Claude-style skills such as writing, coding, research, automation, design assistance, and productivity workflows.
+The project lives in one file: [`claude-skills-card-ui.html`](./claude-skills-card-ui.html). It creates an interactive 3D card with a dark premium look, glowing gradient shader, subtle grain texture, Claude-style mark, and mouse-follow tilt animation.
 
 ---
 
 ## UI Preview
 
-> GitHub README files cannot render full app styling like a browser, but this preview gives a close visual idea of the card layout.
+> GitHub README files cannot run the JavaScript tilt interaction, but this preview represents the card’s content and layout. Open the HTML file in a browser to see the full 3D hover effect.
 
 <table>
   <tr>
-    <td width="420">
-      <h3>🤖 Claude Skills</h3>
-      <p><strong>Smart AI assistant card for showcasing powerful skills.</strong></p>
+    <td width="420" align="center">
+      <br />
+      <h3>✳ suraj.dsgn</h3>
+      <br />
+      <h1>New Claude Skills</h1>
+      <p><strong>for UI/UX Engineers</strong></p>
+      <br />
       <p>
-        A beautiful card UI for displaying Claude-style capabilities with icons,
-        descriptions, tags, and call-to-action buttons.
+        Dark interactive card · glowing shader · mouse tilt · responsive layout
       </p>
-      <p>
-        <code>Writing</code>
-        <code>Coding</code>
-        <code>Research</code>
-        <code>Automation</code>
-      </p>
-      <p>
-        <strong>Status:</strong> Ready for UI implementation<br />
-        <strong>Design:</strong> Minimal, modern, and responsive
-      </p>
-      <p>
-        <a href="#features">View Features</a> ·
-        <a href="#getting-started">Get Started</a>
-      </p>
+      <br />
     </td>
   </tr>
 </table>
@@ -41,64 +31,50 @@ This repository is intended for building a reusable card component that can show
 
 ## Description
 
-**Claude Skills Card UI** is a frontend UI project focused on creating a visually appealing card component for AI-related skills or tools. The card can be used in dashboards, landing pages, portfolios, SaaS apps, AI tool directories, or productivity apps.
+**Claude Skills Card UI** is a standalone HTML project that displays a polished interactive card for UI/UX presentation work. The card is centered on the page and uses CSS variables plus JavaScript mouse tracking to create a smooth 3D tilt effect.
 
-The goal is to make each skill feel clear, attractive, and easy to understand at a glance.
-
----
-
-## Features
-
-- Modern card-based interface
-- Skill title and short description
-- Icon or emoji support
-- Category tags for quick scanning
-- Status or availability label
-- Call-to-action links or buttons
-- Responsive layout idea for desktop and mobile
-- Easy to customize for different AI tools or skills
+It is useful for experimenting with modern UI cards, hero visuals, landing page concepts, portfolio shots, and animated interface components.
 
 ---
 
-## Possible Use Cases
+## What the UI Includes
 
-- AI assistant skill showcase
-- SaaS dashboard feature cards
-- Portfolio project cards
-- Landing page sections
-- AI tools directory
-- Productivity app feature highlights
-- Reusable component library
-
----
-
-## Suggested Card Content
-
-Each card can include:
-
-| Field | Description |
-|---|---|
-| Icon | Visual identifier for the skill |
-| Title | Name of the Claude skill or feature |
-| Description | Short explanation of what the skill does |
-| Tags | Categories such as `Writing`, `Code`, `Research`, or `Design` |
-| Status | Availability or current state of the skill |
-| Action | Button or link to open, learn more, or activate the skill |
+- A single responsive card layout
+- Dark premium background style
+- Orange/red glowing shader gradient
+- Subtle SVG noise texture overlay
+- Vignette overlay for depth
+- Claude-style radial brand mark
+- Brand label: `suraj.dsgn`
+- Main heading: `New Claude Skills`
+- Subtitle: `for UI/UX Engineers`
+- Mouse-follow 3D tilt interaction
+- Hover glow based on cursor position
+- Mobile-friendly sizing with media queries
 
 ---
 
-## Example Skill Cards
+## Built With
 
-| Skill | Description | Tags |
-|---|---|---|
-| Writing Assistant | Helps draft, rewrite, summarize, and improve text. | `Writing`, `Productivity` |
-| Code Helper | Assists with debugging, refactoring, and explaining code. | `Coding`, `Development` |
-| Research Skill | Helps collect, organize, and explain information. | `Research`, `Analysis` |
-| Design Support | Helps generate layout ideas, copy, and creative concepts. | `Design`, `Creative` |
+- HTML
+- CSS
+- JavaScript
+
+No React. No Vite. No Tailwind. No dependencies.
 
 ---
 
-## Getting Started
+## File Structure
+
+```text
+claude-skills-card-ui/
+├── claude-skills-card-ui.html
+└── README.md
+```
+
+---
+
+## How to Run
 
 Clone the repository:
 
@@ -106,82 +82,73 @@ Clone the repository:
 git clone https://github.com/IsaacOdeimor/claude-skills-card-ui.git
 ```
 
-Move into the project folder:
+Open the folder:
 
 ```bash
 cd claude-skills-card-ui
 ```
 
-After adding your frontend files, install dependencies based on your chosen stack.
-
-For example, if this becomes a React or Vite project:
+Then open the HTML file directly in your browser:
 
 ```bash
-npm install
-npm run dev
+claude-skills-card-ui.html
 ```
 
----
-
-## Recommended Tech Stack
-
-This UI can be built with:
-
-- HTML, CSS, and JavaScript
-- React
-- Vite
-- Tailwind CSS
-- Next.js
-- Framer Motion for animations
+You can also double-click the file from your file manager.
 
 ---
 
-## Suggested Project Structure
+## How It Works
 
-```text
-claude-skills-card-ui/
-├── README.md
-├── package.json
-├── src/
-│   ├── components/
-│   │   └── SkillCard.jsx
-│   ├── data/
-│   │   └── skills.js
-│   ├── App.jsx
-│   └── main.jsx
-└── public/
+The card uses CSS custom properties for rotation and cursor light position:
+
+```css
+--rx: 0deg;
+--ry: 0deg;
+--mx: 50%;
+--my: 50%;
 ```
 
+JavaScript listens for mouse movement on the card, calculates the cursor position, and updates the CSS variables. Those values control the `rotateX`, `rotateY`, and hover spotlight effect.
+
 ---
 
-## Customization Ideas
+## Customization
 
-You can customize the card by changing:
+You can edit the HTML file to change:
 
-- Background colors
+- Brand name
+- Main heading
+- Subtitle
+- Card size
 - Border radius
-- Shadow depth
-- Icons or emojis
-- Skill categories
-- Button text
-- Hover animations
-- Dark mode styling
-- Grid layout spacing
+- Gradient colors
+- Tilt strength
+- Font styling
+- Shadow intensity
+- Mobile layout
+
+For example, the tilt strength is controlled here:
+
+```js
+const maxTilt = 10;
+```
+
+Increase it for stronger movement or reduce it for a softer hover effect.
 
 ---
 
-## Future Improvements
+## Best Use Cases
 
-- Add real card component code
-- Add live demo link
-- Add screenshots or GIF preview
-- Add dark mode
-- Add animation effects
-- Add reusable skill data file
-- Add responsive mobile layout
+- UI/UX card experiments
+- Portfolio design previews
+- Landing page hero cards
+- AI product feature cards
+- Frontend animation practice
+- CSS gradient and shader experiments
 
 ---
 
 ## License
 
-This project can be used as a starting point for personal or commercial UI projects. Add a license file if you want to define exact usage permissions.
+Add a license file if you want to define how others can use or modify this project.
